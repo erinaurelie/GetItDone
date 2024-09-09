@@ -65,3 +65,4 @@ We're excited to have you contribute to the Todo App project! If you have any qu
 
 ## Authors and Acknowledgments
 This project and in it's entirety was built by me you can follow me on insta to connect 
+All images used in this project were taken from https://icons8.com
