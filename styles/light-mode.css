@@ -1,0 +1,32 @@
+.container {
+    background-color: #F5F5DC;
+}
+
+.add-btn {
+    background-color: #B2FFFC;
+}
+
+.add-btn:hover {
+    background-color: hsla(178, 73%, 75%, 0.8);
+}
+
+.generated-todo {
+    background-color: #FFC67D;
+}
+
+.habit-done {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.delete-all {
+    background-color: #FFD7BE;
+}
+
+.delete-all:hover {
+    background-color: pink;
+}
+
+.username-input {
+    background-color: #F5F5DC;
+}

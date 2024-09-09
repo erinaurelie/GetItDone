@@ -1,0 +1,31 @@
+.container {
+    background-color: #032B44;
+    color: wheat;
+}
+
+.add-btn {
+    background-color: #6c5ce7;
+    color: white;
+}
+.add-btn:hover {
+    background-color: hsla(247, 76%, 52%, .7);
+}
+
+.generated-todo {
+    background-color: #0097A7;
+    color: black;
+}
+
+.habit-done {
+    text-decoration: line-through;
+    color: #ADD8E6;
+}
+
+
+.delete-all {
+    background-color: #333333;
+    color: white;
+}
+.username-input {
+    background-color: #032B44;
+}

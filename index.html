@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+
+    <link rel="stylesheet" href="styles/general.css">
+    <link rel="stylesheet" href="styles/light-mode.css" class="js-stylesheet">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+</head>
+<body>
+    <div class="js-container container">
+        <div class="header">
+            <h1>Todo App</h1>
+            <button class="js-mode-btn mode-btn"><img src="images/dark-mode.png" title="dark mode"></button>
+        </div>
+
+        <fieldset>
+            <input type="text" class="js-username-input username-input">
+            <span>click enter!</span>
+            <legend>
+                Username
+            </legend>
+        </fieldset>
+
+
+        <div class="js-input-container input-container">
+            <input type="text" placeholder="Enter Todo name" class="js-input">
+    
+            <input type="text" class="js-description description-input" placeholder="description (Optional)">
+    
+            <input type="date" class="js-date js-input">
+    
+            <button class="js-add-btn add-btn" onclick="addTodo();">Add</button>
+        </div>
+    
+        <div class="js-todo-list"></div>
+    
+        <button class="js-delete-all delete-all">Delete All</button>
+    </div>
+     
+    <script src="index.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+body {
+    margin: 0 auto;
+    max-width: fit-content;
+    font-size: 17px;
+    font-weight: 500;
+    padding-top: 10px;
+    /*add box shadow*/
+}
+.container {
+    box-shadow: 6px 10px 10px 5px rgba(0, 0, 0, 0.3);
+    padding: 10px;
+}
+
+.delete-button,
+.mode-btn {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-container * {
+    padding: 7px;
+    margin-left: 5px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.add-btn {
+    border-radius: 5px;
+    border: none;
+}
+
+.generated-todo {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
+    margin-top: 10px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.description {
+    margin: 0 0 0 20px;
+    max-width: 300px;
+    height: fit-content;
+    word-wrap: break-word; /*this helped wrap around*/
+    cursor: pointer;
+}
+
+.generated-date {
+    display: inline-block;
+    margin-left: 120px;
+    font-size: 12px;
+}
+
+.small-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.delete-all {
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    margin: 10px 0 0 0;
+    cursor: pointer;
+}
+
+.input-container {
+    display: grid;
+    grid-template-columns: 150px 200px 150px 100px;
+}
+
+.username-input {
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    font-size: 17px;
+    flex: 1;
+}
+
+.username-input:focus {
+    outline: none;
+}
+
+.username {
+    font-size: 20px;
+}
+
+fieldset {
+    margin: 5px 0 10px 0;
+    display: flex;
+}
+
+.fieldset {
+    border: none;
+}
