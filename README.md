@@ -64,5 +64,5 @@ This project is licensed under the MIT License. By contributing to this project,
 We're excited to have you contribute to the Todo App project! If you have any questions or need help getting started, feel free to ask.
 
 ## Authors and Acknowledgments
-This project and in it's entirety was built by me you can follow me on insta to connect 
+This project and in it's entirety was built by me you can follow me on insta to connect https://www.instagram.com/swe.erin <br>
 All images used in this project were taken from https://icons8.com
