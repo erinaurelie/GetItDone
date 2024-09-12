@@ -103,3 +103,57 @@ fieldset {
 .fieldset {
     border: none;
 }
+
+/*If screen <= 527px activate these styles*/
+@media (max-width: 527px) {
+    .input-container {
+        grid-template-columns: 10px 10px 10px 2px;
+    }
+    .add-btn {
+        height: 1000000px;
+    }
+}
+/*if screen is <= 570px activate these styles*/
+@media (max-width: 570px) {
+    .input-container {
+        grid-template-columns: 140px 150px 150px 70px;
+        align-items: center;
+    }
+  
+    .add-btn {
+        height: 40px;
+        width: 4em;
+        margin-left: 15px;
+    }
+
+    fieldset span {
+        display: none;
+    }
+    .other-add-btn {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+/*apply these styles when the screen is >= 571px && <= 627px*/
+@media (min-width: 571px) and  (max-width: 627px){
+    .input-container {
+        grid-template-columns: 150px 150px 130px 70px;
+        column-gap: 10px;
+    }
+    .add-btn {
+        width: 4em;
+        margin-left: 10px;
+    }
+    .description {
+        width: 200px;
+        border: 1px solid red;
+    }
+}
+/*If screen is >= 570px apply these styles*/
+@media (min-width: 570px) {
+    .other-add-btn {
+        display: none;
+    }
+}
