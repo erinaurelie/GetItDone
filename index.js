@@ -1,18 +1,18 @@
-window.onload = displaylocalStorage; //call this function when the page finishes to load
+window.onload = displaylocalStorage; 
 
 let todoArray = []; 
 
-//Load todos from localStorage
+// Load todos from localStorage
 function displaylocalStorage() {
     if (localStorage.getItem('todoList') !== null) {
         todoArray = JSON.parse(localStorage.getItem('todoList'));
         renderTodoList();
     }
     const storedUserName = localStorage.getItem('username');
-    //will call the function only if storedUserName is  truthy value
     storedUserName && renderUsername(storedUserName);
-  
+    
     const storedMode = localStorage.getItem('current mode');
+    
     storedMode && (stylesheetElem.href = storedMode);
    
 }
@@ -45,13 +45,13 @@ usernameInputElem.addEventListener('keydown', event => {
 
 addNameElem.addEventListener('click', validName);
 
-
+// Display array in the DOM
 function renderTodoList() {
     let todoArrayHTML = '';
 
     for (let i = 0; i < todoArray.length; i++) {
-        const todoObject = todoArray[i]; // storing array elements
-        const { name, dueDate, description, completed } = todoObject; //destructuring to store the value in the objects
+        const todoObject = todoArray[i]; 
+        const { name, dueDate, description, completed } = todoObject; 
         const html = `
         <div class="generated-todo">
             <div><input type="checkbox" id="checkbox-${i}" class="js-checkbox" ${completed ? 'checked' : ''}></div>
@@ -67,43 +67,31 @@ function renderTodoList() {
                 <button onclick="removeTodo(${i});" class="delete-button js-delete-button"><img src="images/delete-icon.png"></button>
             </div>
         </div>
-
+        `; 
         todoArrayHTML += html;
     }
 
-    // displaying in the DOM
     document.querySelector('.js-todo-list')
         .innerHTML = todoArrayHTML;
 
     toggleCompletion();
+
 }
 
-function toggleCompletion() {  // attach event listeners to each checkbox
+// attach event listeners to each checkbox
+function toggleCompletion() {  
     const checkboxes = document.querySelectorAll('.js-checkbox');
     const labelElem = document.querySelectorAll('.js-todo-label');
-    const descriptionElem = document.querySelectorAll('.js-description');
     checkboxes.forEach((checkbox, index) => {
         checkbox.addEventListener('change', () => {
-            if (checkbox.checked) {
-                labelElem[index].classList.add('habit-done');
-                const descriptionSpan = descriptionElem[index].querySelector('span'); // only add class to the span element
-                if (descriptionSpan) {
-                    descriptionSpan.classList.add('habit-done');
-                }
-                todoArray[index].completed = true;
-            } else {
-                labelElem[index].classList.remove('habit-done');
-                const descriptionSpan = descriptionElem[index].querySelector('span'); 
-                if (descriptionSpan) {
-                    descriptionSpan.classList.remove('habit-done');
-                }
-                todoArray[index].completed = false;
-            }
+            labelElem[index].classList.toggle('habit-done', checkbox.checked); //toggles based the boolean value
+            todoArray[index].completed = checkbox.checked; //true or false
             localStorage.setItem('todoList', JSON.stringify(todoArray));
         });
     });
 }
 
+// Populate todoArray
 function addTodo() {
     const inputElem = document.querySelector('.js-input');
     const dueDateInputElem = document.querySelector('.js-date');
@@ -153,13 +141,14 @@ deleteAllElem.addEventListener('click', () => {
         alert('Todo List is empty');
     } else {
         if (confirm("Are you sure you want to delete all todo's?")) {
-            todoArray.splice(0, todoArray.length); 
+            todoArray.splice(0, todoArray.length);
             renderTodoList();
             localStorage.setItem('todoList', JSON.stringify(todoArray));
         }
     }
 });
 
+//delete todo
 function removeTodo(index) {
     todoArray.splice(index, 1);
     renderTodoList();
@@ -180,7 +169,7 @@ toggleButtonElem.addEventListener('click', () => {
         toggleButtonElem.innerHTML = `
         <img src="images/dark-mode.png" title="dark mode">
         `;
-        stylesheetElem.href = 'styles/light-mode.css'; //switching style sheets
+        stylesheetElem.href = 'styles/light-mode.css'; 
         localStorage.setItem('current mode', stylesheetElem.href)
     } else {
         element.add('dark-mode');
