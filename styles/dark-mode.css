@@ -18,9 +18,8 @@
 
 .habit-done {
     text-decoration: line-through;
-    color: #ADD8E6;
+    color: #ffffff8f;
 }
-
 
 .delete-all {
     background-color: #333333;
@@ -28,4 +27,5 @@
 }
 .username-input {
     background-color: #032B44;
+    color: #C6F4D6;
 }
