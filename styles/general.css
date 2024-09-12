@@ -148,7 +148,6 @@ fieldset {
     }
     .description {
         width: 200px;
-        border: 1px solid red;
     }
 }
 /*If screen is >= 570px apply these styles*/
