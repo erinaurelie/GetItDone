@@ -1,18 +1,20 @@
 window.onload = displaylocalStorage; //call this function when the page finishes to load
 
-let todoArray = []; //if stored data assign it to todoArray else to an empty one
+let todoArray = []; 
 
-
+//Load todos from localStorage
 function displaylocalStorage() {
-    //Load todos from localStorage
     if (localStorage.getItem('todoList') !== null) {
         todoArray = JSON.parse(localStorage.getItem('todoList'));
         renderTodoList();
     }
     const storedUserName = localStorage.getItem('username');
-    if (storedUserName) {
-        renderUsername(storedUserName);
-    }
+    //will call the function only if storedUserName is  truthy value
+    storedUserName && renderUsername(storedUserName);
+  
+    const storedMode = localStorage.getItem('current mode');
+    storedMode && (stylesheetElem.href = storedMode);
+   
 }
 
 function renderUsername(userName) {
@@ -23,25 +25,32 @@ function renderUsername(userName) {
 let usernameInputElem = document.querySelector('.js-username-input');
 const fieldSetElem = document.querySelector('fieldset');
 
-usernameInputElem.addEventListener('keydown', event => {
-    if (event.key === 'Enter') {
-        const userName = usernameInputElem.value;
+const addNameElem = document.querySelector('.js-other-add-btn'); 
+function validName() {
+    const userName = usernameInputElem.value;
 
         if (userName !== '') {
             fieldSetElem.classList.add('fieldset');
             fieldSetElem.innerHTML = `Welcome ${userName}!`;
+        } else {
+            alert('Enter Name');
         }
         localStorage.setItem('username', userName);
+}
+usernameInputElem.addEventListener('keydown', event => {
+    if (event.key === 'Enter') {
+        validName();
     }
 });
+
+addNameElem.addEventListener('click', validName);
+
 
 function renderTodoList() {
     let todoArrayHTML = '';
 
     for (let i = 0; i < todoArray.length; i++) {
         const todoObject = todoArray[i]; // storing array elements
-        //const name = todoObject.name;
-        //const dueDate = todoObject.dueDate;
         const { name, dueDate, description, completed } = todoObject; //destructuring to store the value in the objects
         const html = `
         <div class="generated-todo">
@@ -58,7 +67,7 @@ function renderTodoList() {
                 <button onclick="removeTodo(${i});" class="delete-button js-delete-button"><img src="images/delete-icon.png"></button>
             </div>
         </div>
-        `; // putting each in a paragraph
+
         todoArrayHTML += html;
     }
 
@@ -67,7 +76,6 @@ function renderTodoList() {
         .innerHTML = todoArrayHTML;
 
     toggleCompletion();
-
 }
 
 function toggleCompletion() {  // attach event listeners to each checkbox
@@ -85,7 +93,7 @@ function toggleCompletion() {  // attach event listeners to each checkbox
                 todoArray[index].completed = true;
             } else {
                 labelElem[index].classList.remove('habit-done');
-                const descriptionSpan = descriptionElem[index].querySelector('span'); // only add class to the span element
+                const descriptionSpan = descriptionElem[index].querySelector('span'); 
                 if (descriptionSpan) {
                     descriptionSpan.classList.remove('habit-done');
                 }
@@ -108,15 +116,11 @@ function addTodo() {
 
     if (inputElem.value.trim() !== '') {
         todoArray.push({
-            //name: name,
-            //dueDate: dueDate,
-            //if the property name and the variable name are the same this works too. Kind of like destructuring
             name,
             dueDate,
             description,
             completed: false
         });
-        //console.log(todoArray);
 
         inputElem.value = '';
         dueDateInputElem.value = '';
@@ -149,8 +153,7 @@ deleteAllElem.addEventListener('click', () => {
         alert('Todo List is empty');
     } else {
         if (confirm("Are you sure you want to delete all todo's?")) {
-            //todoArray = [];
-            todoArray.splice(0, todoArray.length); //removes all elements from array this is better than re-initialising the whole array.
+            todoArray.splice(0, todoArray.length); 
             renderTodoList();
             localStorage.setItem('todoList', JSON.stringify(todoArray));
         }
@@ -178,11 +181,13 @@ toggleButtonElem.addEventListener('click', () => {
         <img src="images/dark-mode.png" title="dark mode">
         `;
         stylesheetElem.href = 'styles/light-mode.css'; //switching style sheets
+        localStorage.setItem('current mode', stylesheetElem.href)
     } else {
         element.add('dark-mode');
         toggleButtonElem.innerHTML = `
         <img src="images/light-mode.png" title="light mode">
         `;
         stylesheetElem.href = 'styles/dark-mode.css';
+        localStorage.setItem('current mode', stylesheetElem.href)
     }
 });
