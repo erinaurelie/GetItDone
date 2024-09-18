@@ -34,7 +34,7 @@ https://github.com/erinaurelie/GetItDone.git
   Click the "Toggle Mode" button at the top right corner of the screen.
   The app will switch between dark and light mode.
 ### * Save todos
-  No need all your todos are automatically saved on yoour browser locally
+  No need all your todos are automatically saved on your browser's local storage.
 
 ### Contributing
 
