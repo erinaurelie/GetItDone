@@ -16,6 +16,7 @@ https://github.com/erinaurelie/GetItDone.git
 * Task Deletion
 * Task Completion
 * Dark & Light Mode
+* All todos are automatically saved on your browser locally
 
 ### Usage
 ### * Creating a New Task <br>
@@ -32,6 +33,8 @@ https://github.com/erinaurelie/GetItDone.git
 ### * Switching Between Dark and Light Mode <br>
   Click the "Toggle Mode" button at the top right corner of the screen.
   The app will switch between dark and light mode.
+### Save todos
+  No need all your todos are automatically saved on yoour browser locally
 
 ### Contributing
 
