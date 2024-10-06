@@ -221,3 +221,17 @@ fieldset {
         grid-template-columns: 1fr 1fr;
     }
 }
+
+@media (max-width: 540px) {
+    .input-container {
+        grid-template-columns: 140px 160px 130px 100px;
+    }
+}
+
+/*this*/
+@media (max-width: 450px) {
+    .input-container {
+        grid-template-columns: 110px 120px 100px 70px;
+    }
+}
+
